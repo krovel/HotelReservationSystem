@@ -48,9 +48,18 @@ public class HotelReservationTest {
 	public void checkWithInvalidDateFormat() {
 		HotelReservation hotelReservation = new HotelReservation();
 		try {
-			String hotel = hotelReservation.findCheapestBestRatedHotel("Reward", "102020", "11Sep");
+			hotelReservation.findCheapestBestRatedHotel("Reward", "102020", "11Sep");
 		} catch (Exception e) {
 			assertEquals("Please enter date in proper format:", e.getMessage());
+		}
+	}
+	@Test
+	public void checkWithInvalidDateTypeOfCustomer() {
+		HotelReservation hotelReservationMain = new HotelReservation();
+		try {
+			hotelReservationMain.findCheapestBestRatedHotel("hotel", "10Sep2020", "11Sep2020");
+		} catch (Exception e) {
+			assertEquals("Please enter- Reward or Regular: ", e.getMessage());
 		}
 	}
 }

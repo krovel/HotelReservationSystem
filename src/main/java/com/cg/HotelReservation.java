@@ -41,7 +41,7 @@ public class HotelReservation {
 		long minRent = Collections.min(hotelRentList);
 		Hotel cheapestHotel = hotelList.stream()
 				.filter(hotel -> hotel.getRegularCustomerWeekdayRate() * days == minRent).findFirst().orElse(null);
-		System.out.println("Hotel : " + cheapestHotel.getHotelName() + " Cost : " + minRent);
+		System.out.println("Cheapest Hotel : " + cheapestHotel.getHotelName() + " Cost : " + minRent);
 		return cheapestHotel.getHotelName();
 	}
 
@@ -68,11 +68,11 @@ public class HotelReservation {
 	public String findCheapestBestRatedHotel(String type, String startDate, String finishDate) {
 		if(!(type.equals("Reward") || type.equals("Regular")))
 			return "Reward or Regular:";
-			try {
-				convert(startDate, finishDate);
-			} catch (ParseException e) {
+		try {
+			convert(startDate, finishDate);
+		} catch (ParseException e) {			
 			return "Enter date in proper format: ";
-			}
+		}
 		List<Long> hotelRentList = hotelList.parallelStream()
 				.map(hotel -> calculateHotelCost(type, hotel, weekDays, weekendDays)).collect(Collectors.toList());
 		long minRent = Collections.min(hotelRentList);
