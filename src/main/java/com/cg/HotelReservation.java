@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 import java.text.*;
 
 public class HotelReservation {
-	final Hotel LAKEWOOD = new Hotel("Lakewood", 110);
-	final Hotel BRIDGEWOOD = new Hotel("Bridgewood", 150);
-	final Hotel RIDGEWOOD = new Hotel("Ridgewood", 220);
+	final Hotel LAKEWOOD = new Hotel("Lakewood", 110,90);
+	final Hotel BRIDGEWOOD = new Hotel("Bridgewood", 150,50);
+	final Hotel RIDGEWOOD = new Hotel("Ridgewood", 220,150);
 	Date inDate;
 	Date outDate;
 
