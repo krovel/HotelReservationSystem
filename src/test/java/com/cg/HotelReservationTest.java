@@ -16,9 +16,15 @@ public class HotelReservationTest {
 	}
 	@Test
 	public void checkCheapestHotelForRegularCustomerConsideringWeekdayAndWeekend() throws ParseException {
-		HotelReservation hotelReservationMain = new HotelReservation();
-		List<String> hotel = hotelReservationMain.findCheapestHotelForRegularCustomersConsideringWeekdayAndWeekend("10Sep2020","11Sep2020");
+		HotelReservation hotelReservation = new HotelReservation();
+		List<String> hotel = hotelReservation.findCheapestHotelForRegularCustomersConsideringWeekdayAndWeekend("10Sep2020","11Sep2020");
 	    List<String> expected = new ArrayList<>(Arrays.asList("Lakewood","Bridgewood"));
 	    assertEquals(expected, hotel);
+	}
+	@Test
+	public void checkCheapestBestRatedHotelForRegularCustomers() throws ParseException {
+		HotelReservation hotelReservation = new HotelReservation();
+		String hotel = hotelReservation.cheapestBestRatedHotel("10Sep2020","11Sep2020");
+		assertEquals("Bridgewood", hotel);
 	}
 }
