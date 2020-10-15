@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 import java.text.*;
 
 public class HotelReservation {
-	final Hotel LAKEWOOD = new Hotel("Lakewood", 110,90);
-	final Hotel BRIDGEWOOD = new Hotel("Bridgewood", 150,50);
-	final Hotel RIDGEWOOD = new Hotel("Ridgewood", 220,150);
+	final Hotel LAKEWOOD = new Hotel("Lakewood", 110,90,3);
+	final Hotel BRIDGEWOOD = new Hotel("Bridgewood", 150,50,4);
+	final Hotel RIDGEWOOD = new Hotel("Ridgewood", 220,150,5);
 	Date inDate;
 	Date outDate;
 
@@ -30,7 +30,7 @@ public class HotelReservation {
 		long minRent = Collections.min(hotelRentList);
 		Hotel cheapestHotel = hotel.stream().filter(hotel -> hotel.getRegularCustomerWeekdayRate() * days == minRent).findFirst()
 				.orElse(null);
-		System.out.println("Hotel : "+ cheapestHotel.getHotelName()+" Cost : "+ minRent);
+		System.out.println("Cheapest Hotel : "+ cheapestHotel.getHotelName()+" Cost : "+ minRent);
 		return cheapestHotel.getHotelName();
 	 }
 
@@ -50,7 +50,7 @@ public class HotelReservation {
 				.filter(hotel -> hotelCost(hotel, weekDays, weekendDays) == minRent)
 				.map(hotel -> hotel.getHotelName()).collect(Collectors.toList());
 		for (String hotel : cheapHotelList)
-			System.out.println("Hotel : " + hotel + " Cost : " + minRent);
+			System.out.println("Cheapest Hotel based on Weekday and Weekend : " + hotel + " Cost : " + minRent);
         return cheapHotelList;
 	}
 	
