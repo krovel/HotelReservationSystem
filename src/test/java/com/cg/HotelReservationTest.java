@@ -11,7 +11,7 @@ public class HotelReservationTest {
 	@Test
 	public void checkCheapestHotel() throws ParseException {
 		HotelReservation hotelReservation = new HotelReservation();
-		String hotel = hotelReservation.findCheapestHotel("9Oct2019","15Oct2019");
+		String hotel = hotelReservation.findCheapestHotel("10Sep2020","11Sep2020");
 	    assertEquals("Lakewood", hotel);
 	}
 	@Test
@@ -31,6 +31,12 @@ public class HotelReservationTest {
 	public void checkBestRatedHotelForRegularCustomers() throws ParseException {
 		HotelReservation hotelReservationMain = new HotelReservation();
 		String hotel = hotelReservationMain.findBestRatedHotel("10Sep2020","11Sep2020");
+	    assertEquals("Ridgewood", hotel);
+	}
+	@Test
+	public void checkCheapestBestRatedHotelForRewardCustomers() throws ParseException{
+		HotelReservation hotelReservationMain = new HotelReservation();
+		String hotel = hotelReservationMain.cheapestBestRatedHotelForRewardCustomer("10Sep2020", "11Sep2020");
 	    assertEquals("Ridgewood", hotel);
 	}
 }
