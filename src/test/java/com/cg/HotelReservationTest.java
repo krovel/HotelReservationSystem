@@ -15,7 +15,7 @@ public class HotelReservationTest {
 	    assertEquals("Lakewood", hotel);
 	}
 	@Test
-	public void checkCheapestHotelForRegularCustomerConsideringWeekdayAndWeekend() throws ParseException {
+	public void checkCheapestHotelForRegularCustomers() throws ParseException {
 		HotelReservation hotelReservation = new HotelReservation();
 		List<String> hotel = hotelReservation.findCheapestHotelForRegularCustomersConsideringWeekdayAndWeekend("10Sep2020","11Sep2020");
 	    List<String> expected = new ArrayList<>(Arrays.asList("Lakewood","Bridgewood"));
@@ -26,5 +26,11 @@ public class HotelReservationTest {
 		HotelReservation hotelReservation = new HotelReservation();
 		String hotel = hotelReservation.cheapestBestRatedHotel("10Sep2020","11Sep2020");
 		assertEquals("Bridgewood", hotel);
+	}
+	@Test
+	public void checkBestRatedHotelForRegularCustomers() throws ParseException {
+		HotelReservation hotelReservationMain = new HotelReservation();
+		String hotel = hotelReservationMain.findBestRatedHotel("10Sep2020","11Sep2020");
+	    assertEquals("Ridgewood", hotel);
 	}
 }
