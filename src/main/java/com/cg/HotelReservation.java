@@ -12,9 +12,9 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class HotelReservation {
-	final Hotel LAKEWOOD = new Hotel("Lakewood", 110,90,3);
-	final Hotel BRIDGEWOOD = new Hotel("Bridgewood", 150,50,4);
-	final Hotel RIDGEWOOD = new Hotel("Ridgewood", 220,150,5);
+	final Hotel LAKEWOOD = new Hotel("Lakewood", 110, 90, 3, 80, 80);
+	final Hotel BRIDGEWOOD = new Hotel("Bridgewood", 150, 50, 4, 110, 50);
+	final Hotel RIDGEWOOD = new Hotel("Ridgewood", 220, 150, 5, 100, 40);
 	Date inDate;
 	Date outDate;
 	long days, weekDays, weekendDays;
